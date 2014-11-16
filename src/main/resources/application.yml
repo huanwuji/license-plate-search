@@ -1,0 +1,13 @@
+server:
+    port: 8080
+#    address: 127.0.0.1
+#    sessionTimeout:
+spring:
+    jpa:
+        hibernate.ddl-auto: update
+        show-sql: true
+    datasource:
+        url: jdbc:mysql://localhost/license_plate_search
+        driverClassName: com.mysql.jdbc.Driver
+        username: root
+        password: root
