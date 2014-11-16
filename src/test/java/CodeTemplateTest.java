@@ -1,3 +1,4 @@
+import com.huanwuji.lps.domain.User;
 import org.junit.Test;
 
 public class CodeTemplateTest {
@@ -6,23 +7,30 @@ public class CodeTemplateTest {
         String $test = "test";
         String $strs = "strs";
         String $str = "str";
-        CodeTemplate.create()._("import java.util.List")
+        CodeTemplate.create().c("import java.util.List")
                 .$class("public class HelloWorld")
                 .$def("public static void main(String args[])")
-                ._("int $test = 10", $test)
+                .c("int $test = 10", $test)
                 .$if("$test < 1", $test)
-                ._("System.out.println($test)", $test)
+                .c("System.out.println($test)", $test)
                 .$elseIf("$test >2", $test)
-                ._("System.out.println()")
+                .c("System.out.println()")
                 .$else("$test > 3", $test)
-                ._("System.out.println()")
+                .c("System.out.println()")
                 .$$if()
-                ._("String[] $strs = {\"33\", \"44\"}", $strs)
+                .c("String[] $strs = {\"33\", \"44\"}", $strs)
                 .$for("String $str : $strs", $str, $strs)
-                ._("System.out.println($str)", $str)
+                .c("System.out.println($str)", $str)
                 .$$for()
+                .getValue(User.class, "customer", "root", "$propValueVarName")
                 .$$def()
                 .$$class()
                 .print();
+    }
+
+    @Test
+    public void testName1() throws Exception {
+
+
     }
 }
