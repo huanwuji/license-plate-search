@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head lang='en'>
-    <meta charset='UTF-8'>
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+<div class='container-fluid'>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-success" role="alert" ng-if="delAlert" ng-class="animate-if">
+                <button class="btn btn-warning btn-sm" ng-click="delete()">确认</button>
+                删除？
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-md-12'>
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>用户名</th>
+                        <th>密码</th>
+                        <th>姓名</th>
+                        <th>角色</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="user in users" ng-class="animate-repeat">
+                        <td>{{::user.username}}</td>
+                        <td>{{::user.password}}</td>
+                        <td>{{::user.name}}</td>
+                        <td>{{::user.role}}</td>
+                        <td>
+                            <a ng-href="/user/{{::user.username}}" role="button" class="glyphicon gly glyphicon-edit"></a>
+                            <span role="button" class="glyphicon glyphicon-remove"
+                                  ng-click="ensureDel(user.username)"></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <a class="btn btn-primary" role="button" href="/user/create">添加</a>
+            </div>
+            <div class="col-md-10 text-right">
+                <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize"
+                            class="pagination-sm"
+                            previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"
+                            boundary-links="true" rotate="false" num-pages="numPages"
+                            items-per-page="itemsPerPage" ng-change="pageChanged()"></pagination>
+            </div>
+        </div>
+    </div>
+</div>

@@ -21,7 +21,6 @@ var packages = (function () {
             'bootstrap': webjars.path('bootstrap', 'js/bootstrap'),
             'bootstrap-css': webjars.path('bootstrap', 'css/bootstrap'),
             'jquery': webjars.path('jquery', 'jquery'),
-            'ui-bootstrap': webjars.path('angular-ui-bootstrap', 'ui-bootstrap'),
             'ui-bootstrap-tpls': webjars.path('angular-ui-bootstrap', 'ui-bootstrap-tpls'),
             'angular': webjars.path('angularjs', 'angular'),
             'css': webjars.path('require-css', 'css')

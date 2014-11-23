@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html ng-app='index'>
+<html>
 <head lang='en'>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <base href="/"/>
+    <meta name="fragment" content="!"/>
     <title></title>
     <script src='package.js'></script>
     <script data-main='main' src='/webjars/requirejs/2.1.14-3/require.js'></script>
@@ -20,12 +22,14 @@
         <div class='col-md-2'>
             <ul class='nav nav-pills nav-stacked'>
                 <li class='active'><a href='#'>Home</a></li>
-                <li><a href='#'>Profile</a></li>
-                <li><a href='#'>Messages</a></li>
+                <li><a href='/user'>账户</a></li>
+                <li><a href='/'>用户</a></li>
+                <li><a href='/'>车牌</a></li>
             </ul>
         </div>
         <div class='col-md-10'>
-            <h1>Dashboard</h1>
+            <div ng-view></div>
+            <h1>{{data}}</h1>
         </div>
     </div>
 </div>

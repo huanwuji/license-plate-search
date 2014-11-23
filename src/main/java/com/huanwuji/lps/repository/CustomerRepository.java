@@ -2,7 +2,6 @@ package com.huanwuji.lps.repository;
 
 import com.huanwuji.lps.domain.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 /**
  * Description
@@ -10,6 +9,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  *
  * @author huanwuji
  */
-@RepositoryRestResource()
-public interface CustomerInfoRepository extends JpaRepository<Customer, String> {
+public interface CustomerRepository extends JpaRepository<Customer, String> {
 }
