@@ -1,0 +1,150 @@
+<div class='container-fluid'>
+    <div class='row'>
+        <div class='col-md-10'>
+            <form class='form-horizontal' role='form'>
+                <div class='form-group'>
+                    <label for='num' class='col-sm-2 control-label'>车牌号码</label>
+
+                    <div class='col-sm-10'>
+                        <input type='text' class='form-control' id='num' ng-model='customer.num'
+                               placeholder='num'>
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <label for='brand' class='col-sm-2 control-label'>车辆品牌</label>
+
+                    <div class='col-sm-10'>
+                        <input type='text' class='form-control' id='brand' ng-model='customer.brand'
+                               placeholder='brand'>
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <label for='type' class='col-sm-2 control-label'>车辆型号</label>
+
+                    <div class='col-sm-10'>
+                        <input type='text' class='form-control' id='type' ng-model='customer.type'
+                               placeholder='type'>
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <label for='carriageNum' class='col-sm-2 control-label'>车架号</label>
+
+                    <div class='col-sm-10'>
+                        <input type='text' class='form-control' id='carriageNum' ng-model='customer.carriageNum'
+                               placeholder='carriageNum'>
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <label for='engineNum' class='col-sm-2 control-label'>发动机号</label>
+
+                    <div class='col-sm-10'>
+                        <input type='engineNum' class='form-control' id='engineNum' ng-model='customer.engineNum'
+                               placeholder='engineNum'>
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <label for='color' class='col-sm-2 control-label'>车身颜色</label>
+
+                    <div class='col-sm-10'>
+                        <input type='text' class='form-control' id='color' ng-model='customer.type'
+                               placeholder='type'>
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <label for='useType' class='col-sm-2 control-label'>使用性质</label>
+
+                    <div class='col-sm-10'>
+                        <input type='text' class='form-control' id='useType' ng-model='customer.useType'
+                               placeholder='useType'>
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <label for='credentialsNum' class='col-sm-2 control-label'>证件号码</label>
+
+                    <div class='col-sm-10'>
+                        <input type='text' class='form-control' id='credentialsNum' ng-model='customer.credentialsNum'
+                               placeholder='credentialsNum'>
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <label for='credentialsName' class='col-sm-2 control-label'>证件名称</label>
+
+                    <div class='col-sm-10'>
+                        <input type='text' class='form-control' id='credentialsName' ng-model='customer.type'
+                               placeholder='credentialsName'>
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <label for='customerName' class='col-sm-2 control-label'>车主姓名</label>
+
+                    <div class='col-sm-10'>
+                        <input type='text' class='form-control' id='customerName' ng-model='customer.customerName'
+                               placeholder='customerName'>
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <label for='address' class='col-sm-2 control-label'>登记住所</label>
+
+                    <div class='col-sm-10'>
+                        <input type='text' class='form-control' id='address' ng-model='customer.address'
+                               placeholder='address'>
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <label for='phone' class='col-sm-2 control-label'>联系电话</label>
+
+                    <div class='col-sm-10'>
+                        <input type='text' class='form-control' id='phone' ng-model='customer.phone'
+                               placeholder='phone'>
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <label for='mobile' class='col-sm-2 control-label'>手机号码</label>
+
+                    <div class='col-sm-10'>
+                        <input type='text' class='form-control' id='mobile' ng-model='customer.mobile'
+                               placeholder='mobile'>
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <label for='registerTime' class='col-sm-2 control-label'>登记日期</label>
+
+                    <div class='col-sm-10'>
+                        <input type='text' class='form-control' id='registerTime' ng-model='customer.registerTime'
+                               placeholder='registerTime'>
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <label for='validTime' class='col-sm-2 control-label'>检验有效期止</label>
+
+                    <div class='col-sm-10'>
+                        <input type='text' class='form-control' id='validTime' ng-model='customer.validTime'
+                               placeholder='validTime'>
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <label for='effectTime' class='col-sm-2 control-label'>发证日期</label>
+
+                    <div class='col-sm-10'>
+                        <input type='text' class='form-control' id='effectTime' ng-model='customer.effectTime'
+                               placeholder='effectTime'>
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <label for='expireTime' class='col-sm-2 control-label'>保险到期日期</label>
+
+                    <div class='col-sm-10'>
+                        <input type='text' class='form-control' id='expireTime' ng-model='customer.expireTime'
+                               placeholder='expireTime'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <a type="button" class="btn btn-primary" role="button" href="/customer">取消</a>
+                        <button type="button" class="btn btn-primary" ng-click="save()">保存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

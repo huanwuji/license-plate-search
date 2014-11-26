@@ -29,7 +29,7 @@ define(function () {
             $scope.ensureDel = function (id) {
                 $scope.delAlert = true;
                 deleteId = id;
-            }
+            };
             $scope.delete = function () {
                 userService.delete({id: deleteId}, function () {
                     $scope.delAlert = false;
