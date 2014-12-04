@@ -37,12 +37,15 @@ define(function () {
                     getData();
                 });
             }
-            function getData() {
-                userService.get({
+            $scope.search = function () {
+                getData({'s-username-like': $scope.searchText})
+            }
+            function getData(params) {
+                userService.get(angular.extend({
                     page: $scope.currentPage - 1,
                     size: $scope.itemsPerPage,
                     sort: 'username'
-                }, function (page) {
+                }, params), function (page) {
                     $scope.totalItems = page.totalElements;
                     $scope.numPages = page.totalPages;
                     $scope.users = page.content;

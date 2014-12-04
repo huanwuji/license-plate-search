@@ -6,6 +6,16 @@
                 删除？
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-inline navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="searchText" placeholder="请输入用户名">
+                    </div>
+                    <button class="btn btn-default glyphicon glyphicon-search" ng-click="search()"></button>
+                </div>
+            </div>
+        </div>
         <div class='row'>
             <div class='col-md-12'>
                 <table class="table table-bordered table-striped table-hover">
@@ -25,7 +35,8 @@
                         <td>{{::user.name}}</td>
                         <td>{{::user.role}}</td>
                         <td>
-                            <a ng-href="/user/{{::user.username}}" role="button" class="glyphicon gly glyphicon-edit"></a>
+                            <a ng-href="/user/{{::user.username}}" role="button"
+                               class="glyphicon gly glyphicon-edit"></a>
                             <span role="button" class="glyphicon glyphicon-remove"
                                   ng-click="ensureDel(user.username)"></span>
                         </td>

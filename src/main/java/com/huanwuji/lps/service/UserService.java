@@ -2,7 +2,7 @@
 //
 //import com.google.common.collect.Lists;
 //import com.huanwuji.lps.domain.User;
-//import com.huanwuji.lps.repository.UserRepository;
+//import com.huanwuji.lps.repository.jpa.UserRepository;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.core.authority.SimpleGrantedAuthority;
 //import org.springframework.security.core.userdetails.UserDetails;
