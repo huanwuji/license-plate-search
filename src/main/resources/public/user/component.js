@@ -1,14 +1,15 @@
 define(function () {
-    return {
-        'userCreateCtrl': ['$scope', 'userService', '$routeParams', '$location', function ($scope, userService, $routeParams, $location) {
+    return function (module) {
+        module.factory('userService', ['$resource', function ($resource) {
+            return $resource('/users/:id', {userId: '@id'});
+        }]).controller('userCreateCtrl', ['$scope', 'userService', '$routeParams', '$location', function ($scope, userService, $routeParams, $location) {
             $scope.user = {role: 'guest'};
             $scope.save = function () {
                 userService.save($scope.user, function () {
                     $location.path("/user");
                 });
             }
-        }],
-        'userEditCtrl': ['$scope', 'userService', '$routeParams', '$location', function ($scope, userService, $routeParams, $location) {
+        }]).controller('userEditCtrl', ['$scope', 'userService', '$routeParams', '$location', function ($scope, userService, $routeParams, $location) {
             var id = $routeParams.id;
             $scope.user = userService.get({id: id});
             $scope.save = function () {
@@ -16,8 +17,7 @@ define(function () {
                     $location.path("/user");
                 });
             }
-        }],
-        'userListCtrl': ['$scope', '$location', 'userService', function ($scope, $location, userService) {
+        }]).controller('userListCtrl', ['$scope', '$location', 'userService', function ($scope, $location, userService) {
             $scope.currentPage = 1;
             $scope.maxSize = 10;
             $scope.itemsPerPage = 20;
@@ -36,10 +36,10 @@ define(function () {
                     deleteId = null;
                     getData();
                 });
-            }
+            };
             $scope.search = function () {
                 getData({'s-username-like': $scope.searchText})
-            }
+            };
             function getData(params) {
                 userService.get(angular.extend({
                     page: $scope.currentPage - 1,
@@ -51,6 +51,6 @@ define(function () {
                     $scope.users = page.content;
                 });
             }
-        }]
+        }])
     }
 });

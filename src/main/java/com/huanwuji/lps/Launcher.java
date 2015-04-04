@@ -1,11 +1,11 @@
 package com.huanwuji.lps;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
-//import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-//import org.springframework.data.solr.repository.config.EnableSolrRepositories;
-//import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
 /**
  * Description
@@ -15,13 +15,16 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @EnableAutoConfiguration
 @ComponentScan
-//@EnableSolrRepositories
-//@EnableSolrRepositores(basePackages={"com.acme.solr"}, multicoreSupport=true)
-//@EnableJpaRepositories(basePackages = "com.huanwuji.lps.repository")
-//@EnableGlobalMethodSecurity
 public class Launcher {
+    private static Logger logger = LoggerFactory.getLogger(Launcher.class);
 
     public static void main(String[] args) {
-        SpringApplication.run(Launcher.class, args);
+        logger.info("begin start");
+        ConfigurableApplicationContext context = SpringApplication.run(Launcher.class);
+        logger.info("start complete");
+//        ClassPathXmlApplicationContext elasticsearchContext = ElasticsearchLauncher.start(args);
+//        CustomerController customerController = context.getBean(CustomerController.class);
+//        ElasticsearchCustomerRepository elasticsearchCustomerRepository = elasticsearchContext.getBean(ElasticsearchCustomerRepository.class);
+//        customerController.setElasticsearchCustomerRepository(elasticsearchCustomerRepository);
     }
 }

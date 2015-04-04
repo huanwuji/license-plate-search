@@ -2,7 +2,7 @@ package com.huanwuji.lps.controller;
 
 import com.huanwuji.lps.controller.support.EntityControllerSupport;
 import com.huanwuji.lps.domain.User;
-import com.huanwuji.lps.repository.jpa.UserRepository;
+import com.huanwuji.lps.utils.CommonJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/users")
-public class UserController extends EntityControllerSupport<User> {
+public class UserController extends EntityControllerSupport<User, Long> {
     @Autowired
-    public void setRepository(UserRepository userRepository) {
-        commonJpaRepository = userRepository;
+    public UserController(CommonJpaRepository commonJpaRepository) {
+        super(commonJpaRepository);
     }
 
     @Override

@@ -1,0 +1,61 @@
+{
+  "settings": {
+    "analysis": {
+      "filter": {
+        "trigrams_filter": {
+          "type": "ngram",
+          "min_gram": 2,
+          "max_gram": 20
+        }
+      },
+      "analyzer": {
+        "trigrams": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": [
+            "lowercase",
+            "trigrams_filter"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "customer": {
+      "properties": {
+        "brand": {
+          "type": "string",
+          "analyzer": "trigrams"
+        },
+        "carriageNum": {
+          "type": "string",
+          "analyzer": "trigrams"
+        },
+        "color": {
+          "type": "string",
+          "analyzer": "trigrams"
+        },
+        "engineNum": {
+          "type": "string",
+          "analyzer": "trigrams"
+        },
+        "id": {
+          "type": "string",
+          "analyzer": "trigrams"
+        },
+        "num": {
+          "type": "string",
+          "analyzer": "trigrams"
+        },
+        "type": {
+          "type": "string",
+          "analyzer": "trigrams"
+        },
+        "useType": {
+          "type": "string",
+          "analyzer": "trigrams"
+        }
+      }
+    }
+  }
+}

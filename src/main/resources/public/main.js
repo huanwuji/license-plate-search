@@ -1,8 +1,15 @@
 requirejs.config(packages);
-require(['angular', 'controller', 'user/service', 'user/controller', 'customer/service', 'customer/controller', 'css!bootstrap-css'],
-    function (angular, controller, userServices, userCtrls, customerServices, customerCtrls) {
-        require(['angular-resource', 'angular-route', 'angular-animate', 'ui-bootstrap-tpls'], function () {
+require(['angular',
+        'component',
+        "user/component",
+        "customer/component"],
+    function (angular) {
+        var components = angular.copy(arguments, []).slice(1);
+        require(['angular-resource', 'angular-route', 'angular-animate', 'ui-bootstrap-tpls', 'css!bootstrap-css'], function () {
             var module = angular.module('indexModule', ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap']);
+            angular.forEach(components, function (component) {
+                component(module);
+            });
             module.config(['$routeProvider', '$locationProvider',
                 function ($routeProvider, $locationProvider) {
                     $routeProvider
@@ -29,15 +36,12 @@ require(['angular', 'controller', 'user/service', 'user/controller', 'customer/s
                         .when('/customer', {
                             templateUrl: '/customer/list.html',
                             controller: 'customerListCtrl'
+                        })
+                        .otherwise({
+                            redirectTo: '/'
                         });
                     $locationProvider.html5Mode(true).hashPrefix('!');
                 }]);
-            angular.forEach(angular.extend({}, userServices, customerServices), function (value, key) {
-                module.factory(key, value);
-            });
-            angular.forEach(angular.extend({}, controller, userCtrls, customerCtrls), function (value, key) {
-                module.controller(key, value);
-            });
             angular.bootstrap(document, ['indexModule'])
         });
     });

@@ -1,11 +1,8 @@
 package com.huanwuji.lps.domain;
 
-import com.huanwuji.lps.utils.search.Search;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.util.Date;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Setting;
 
 /**
  * Description
@@ -13,62 +10,45 @@ import java.util.Date;
  *
  * @author huanwuji
  */
-@Search(all = true)
-@Entity(name = "customer")
-public class Customer {
+@Document(indexName = "customer", type = "customer")
+@Setting(settingPath = "/settings/customer.json")
+public class ElasticsearchCustomer {
     @Id
     private String id;
     //车牌号码
-    @Column(length = 50)
     private String num;
     //车辆品牌
-    @Column(length = 100)
     private String brand;
     //车辆型号
-    @Column(length = 100)
     private String type;
     //车架号
-    @Column(name = "carriage_num", length = 100)
     private String carriageNum;
     //发动机号
-    @Column(name = "engine_num", length = 100)
     private String engineNum;
     //车身颜色
-    @Column(length = 50)
     private String color;
     //使用性质
-    @Column(name = "use_type", length = 100)
     private String useType;
     //证件号码
-    @Column(name = "credentials_num", length = 100)
     private String credentialsNum;
     //证件名称
-    @Column(name = "credentials_name", length = 50)
     private String credentialsName;
     //车主姓名
-    @Column(name = "customer_name", length = 20)
     private String customerName;
     //登记住所
-    @Column(length = 255)
     private String address;
     //联系电话
-    @Column(length = 20)
     private String phone;
     //手机号码
-    @Column(length = 20)
     private String mobile;
     //登记日期
-    @Column(name = "register_time")
-    private Date registerTime;
+    private String registerTime;
     //检验有效期止
-    @Column(name = "valid_time")
-    private Date validTime;
+    private String validTime;
     //发证日期
-    @Column(name = "effect_time")
-    private Date effectTime;
+    private String effectTime;
     //保险到期日期
-    @Column(name = "expire_time")
-    private Date expireTime;
+    private String expireTime;
 
     public String getId() {
         return id;
@@ -182,35 +162,35 @@ public class Customer {
         this.mobile = mobile;
     }
 
-    public Date getRegisterTime() {
+    public String getRegisterTime() {
         return registerTime;
     }
 
-    public void setRegisterTime(Date registerTime) {
+    public void setRegisterTime(String registerTime) {
         this.registerTime = registerTime;
     }
 
-    public Date getValidTime() {
+    public String getValidTime() {
         return validTime;
     }
 
-    public void setValidTime(Date validTime) {
+    public void setValidTime(String validTime) {
         this.validTime = validTime;
     }
 
-    public Date getEffectTime() {
+    public String getEffectTime() {
         return effectTime;
     }
 
-    public void setEffectTime(Date effectTime) {
+    public void setEffectTime(String effectTime) {
         this.effectTime = effectTime;
     }
 
-    public Date getExpireTime() {
+    public String getExpireTime() {
         return expireTime;
     }
 
-    public void setExpireTime(Date expireTime) {
+    public void setExpireTime(String expireTime) {
         this.expireTime = expireTime;
     }
 }

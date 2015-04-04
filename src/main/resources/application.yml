@@ -1,12 +1,10 @@
+#spring.profiles: jpa
+debug: true
 server:
     port: 8080
 #    address: 127.0.0.1
 #    sessionTimeout:
 spring:
-    data.solr:
-        host: http://127.0.0.1:8983/solr
-        zk-host:
-        repositories.enabled: true
     jpa:
         hibernate.ddl-auto: update
         show-sql: true
@@ -15,3 +13,9 @@ spring:
         driverClassName: com.mysql.jdbc.Driver
         username: root
         password: root
+#---
+#spring.profiles: elasticsearch
+    data.elasticsearch:
+        cluster-name: elasticsearch
+        cluster-nodes: 127.0.0.1:9300
+    jackson.date-format: yyyy-MM-dd HH:mm:ss

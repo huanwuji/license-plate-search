@@ -16,9 +16,9 @@
         <div class="col-sm-12">
             <div class="form-inline navbar-left" role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" class="form-control" ng-model="searchText" placeholder="Search">
                 </div>
-                <button class="btn btn-default glyphicon glyphicon-search"></button>
+                <button class="btn btn-default glyphicon glyphicon-search" ng-click="search()"></button>
             </div>
         </div>
     </div>
@@ -45,10 +45,10 @@
                     <td>{{::customer.mobile}}</td>
                     <td>{{::customer.registerTime}}</td>
                     <td>
-                        <a ng-href="/customer/{{::customer.num}}" role="button"
+                        <a ng-href="/customer/{{::customer.id}}" role="button"
                            class="glyphicon gly glyphicon-edit"></a>
                             <span role="button" class="glyphicon glyphicon-remove"
-                                  ng-click="ensureDel(customer.num)"></span>
+                                  ng-click="ensureDel(customer.id)"></span>
                     </td>
                 </tr>
                 </tbody>
